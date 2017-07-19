@@ -12,6 +12,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.boot.actuate.metrics.CounterService;
+import org.springframework.boot.actuate.metrics.GaugeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -21,12 +23,17 @@ import io.pivotal.pal.tracker.TimeEntry;
 
 public class TimeEntriesControllerTest {
     JdbcTimeEntryRepository timeEntryRepository;
+
     TimeEntriesController controller;
+    CounterService counterService;
+    GaugeService gaugeService;
 
     @Before
     public void setUp() throws Exception {
         timeEntryRepository = mock(JdbcTimeEntryRepository.class);
-        controller = new TimeEntriesController(timeEntryRepository);
+        counterService = mock(CounterService.class);
+        gaugeService = mock(GaugeService.class);
+        controller = new TimeEntriesController(timeEntryRepository, counterService, gaugeService);
     }
 
     @Test
