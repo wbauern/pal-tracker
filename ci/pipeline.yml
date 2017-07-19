@@ -3,7 +3,7 @@ resources:
 - name: pal-tracker
   type: git
   source:
-    uri: git@github.com:wbauer/pal-tracker.git
+    uri: git@github.com:wbauern/pal-tracker.git
     branch: master
     private_key: {{github-private-key}}
 - name: pal-tracker-artifacts
