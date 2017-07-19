@@ -1,51 +1,103 @@
----
+groups: []
 resources:
-- name: pal-tracker
-  type: git
-  source:
-    uri: TODO your github git@github.com:platform-acceleration-lab/pal-tracker.git
-    branch: master
-    private_key: {{github-private-key}}
 - name: pal-tracker-artifacts
   type: s3
   source:
-    bucket: {{aws-bucket}}
+    access_key_id: AKIAJQ2H7DQR7FV6TGDA
+    bucket: student-artifacts-castleabra
     regexp: releases/pal-tracker-(.*).jar
-    access_key_id: {{aws-access-key-id}}
-    secret_access_key: {{aws-secret-access-key}}
+    secret_access_key: velpPeQks6MZ2MnWtvdcTyz+2RY4MmnLVhefIg1a
+- name: pal-tracker
+  type: git
+  source:
+    branch: master
+    private_key: |
+      -----BEGIN RSA PRIVATE KEY-----
+      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
+      -----END RSA PRIVATE KEY-----
+    uri: git@github.com:wbauern/pal-tracker.git
 - name: version
   type: semver
   source:
-    bucket: {{aws-bucket}}
+    access_key_id: AKIAJQ2H7DQR7FV6TGDA
+    bucket: student-artifacts-castleabra
     key: pal-tracker/version
-    access_key_id: {{aws-access-key-id}}
-    secret_access_key: {{aws-secret-access-key}}
-
+    secret_access_key: velpPeQks6MZ2MnWtvdcTyz+2RY4MmnLVhefIg1a
 - name: review-deployment
   type: cf
   source:
-    api: https://api.run.pivotal.io
-    username: {{deploy-username}}
-    password: {{deploy-password}}
-    organization: {{deploy-org}}
-    space: {{review-space}}
-
+    api: https://api.sys.longs.pal.pivotal.io
+    organization: bbauernschmidt-pal
+    password: "69272708"
+    skip_cert_check: true
+    space: review
+    username: wbauernschmidt@pivotal.io
 - name: production-deployment
   type: cf
   source:
-    api: https://api.run.pivotal.io
-    username: {{deploy-username}}
-    password: {{deploy-password}}
-    organization: {{deploy-org}}
-    space: {{production-space}}
-
+    api: https://api.sys.longs.pal.pivotal.io
+    organization: bbauernschmidt-pal
+    password: "69272708"
+    skip_cert_check: true
+    space: production
+    username: wbauernschmidt@pivotal.io
+resource_types: []
 jobs:
 - name: build
   plan:
   - get: pal-tracker
     trigger: true
   - get: version
-    params: {bump: patch}
+    params:
+      bump: patch
   - task: build and test
     file: pal-tracker/ci/tasks/build.yml
   - put: pal-tracker-artifacts
@@ -54,26 +106,28 @@ jobs:
   - put: version
     params:
       file: version/number
-
 - name: deploy-review
   plan:
   - get: pal-tracker
   - get: pal-tracker-artifacts
+    passed:
+    - build
     trigger: true
-    passed: [build]
   - put: review-deployment
     params:
+      environment_variables:
+        WELCOME_MESSAGE: Hello from the review environment
       manifest: pal-tracker/ci/deployments/manifest-review.yml
       path: pal-tracker-artifacts/pal-tracker-*.jar
-      environment_variables:
-
 - name: deploy-production
   plan:
   - get: pal-tracker
   - get: pal-tracker-artifacts
-    passed: [deploy-review]
+    passed:
+    - deploy-review
   - put: production-deployment
     params:
+      environment_variables:
+        WELCOME_MESSAGE: Hello from the production environment
       manifest: pal-tracker/ci/deployments/manifest-production.yml
       path: pal-tracker-artifacts/pal-tracker-*.jar
-      environment_variables:
