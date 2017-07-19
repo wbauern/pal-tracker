@@ -11,9 +11,9 @@ import java.util.List;
  */
 @RestController
 public class TimeEntriesController {
-    private TimeEntryRepository repo;
+    private JdbcTimeEntryRepository repo;
 
-    public TimeEntriesController(TimeEntryRepository repo) {
+    public TimeEntriesController(JdbcTimeEntryRepository repo) {
         this.repo = repo;
     }
 

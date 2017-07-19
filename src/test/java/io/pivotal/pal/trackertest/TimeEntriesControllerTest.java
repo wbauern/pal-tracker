@@ -1,14 +1,5 @@
 package io.pivotal.pal.trackertest;
 
-import io.pivotal.pal.tracker.TimeEntriesController;
-import io.pivotal.pal.tracker.TimeEntry;
-import io.pivotal.pal.tracker.TimeEntryRepository;
-import org.junit.Before;
-import org.junit.Test;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import java.util.List;
-
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.any;
@@ -17,13 +8,24 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import io.pivotal.pal.tracker.JdbcTimeEntryRepository;
+import io.pivotal.pal.tracker.TimeEntriesController;
+import io.pivotal.pal.tracker.TimeEntry;
+
 public class TimeEntriesControllerTest {
-    TimeEntryRepository timeEntryRepository;
+    JdbcTimeEntryRepository timeEntryRepository;
     TimeEntriesController controller;
 
     @Before
     public void setUp() throws Exception {
-        timeEntryRepository = mock(TimeEntryRepository.class);
+        timeEntryRepository = mock(JdbcTimeEntryRepository.class);
         controller = new TimeEntriesController(timeEntryRepository);
     }
 
