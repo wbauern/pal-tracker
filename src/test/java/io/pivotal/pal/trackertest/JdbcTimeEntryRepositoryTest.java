@@ -10,6 +10,8 @@ import javax.sql.DataSource;
 import org.junit.Before;
 import org.junit.Test;
 import org.mariadb.jdbc.MariaDbDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import io.pivotal.pal.tracker.JdbcTimeEntryRepository;
@@ -18,13 +20,15 @@ import io.pivotal.pal.tracker.TimeEntryRepository;
 
 
 public class JdbcTimeEntryRepositoryTest {
+    private static final Logger LOGGER = LoggerFactory.getLogger(JdbcTimeEntryRepositoryTest.class);
+
     private TimeEntryRepository subject;
     private JdbcTemplate jdbcTemplate;
 
     @Before
     public void setUp() throws Exception {
         String mariaDbUrl = System.getenv("SPRING_DATASOURCE_URL");
-        System.out.println("SPRING_DATASOURCE_URL=" + mariaDbUrl);
+        LOGGER.info("SPRING_DATASOURCE_URL={}", mariaDbUrl);
         DataSource dataSource = new MariaDbDataSource(mariaDbUrl);
         subject = new JdbcTimeEntryRepository(dataSource);
 
